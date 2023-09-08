@@ -59,7 +59,7 @@ class BuildExt(build_ext):
           f"the following extensions: {ext_names}") from e
     print("Found CMake")
 
-    cxx = "clang++"
+    cxx = "g++"
     if os.environ.get("CXX") is not None:
       cxx = os.environ.get("CXX")
     try:
@@ -76,7 +76,7 @@ class BuildExt(build_ext):
   def build_extension(self, ext):
     extension_dir = os.path.abspath(
         os.path.dirname(self.get_ext_fullpath(ext.name)))
-    cxx = "clang++"
+    cxx = "g++"
     if os.environ.get("CXX") is not None:
       cxx = os.environ.get("CXX")
     env = os.environ.copy()
